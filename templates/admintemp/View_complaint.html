@@ -1,0 +1,38 @@
+{% extends 'admintemp/index.html'%}
+{% load crispy_forms_tags %}
+{%  block content %}
+<div class="card" style="width: 70rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+        <table class ='table'>
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th>NAME</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in obj %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.user}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.content}}</td>
+                <td>
+                    {% if i.reply == None %}
+                    <a href="{% url 'reply_complaint' i.id%}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">No Reply</a>
+                    {% else %}
+                    <a href="{% url 'reply_complaint' i.id%}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">reply</a>
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+</div>
+{% endblock %}

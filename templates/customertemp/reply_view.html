@@ -1,0 +1,35 @@
+{% extends 'customertemp/Customer_home.html'%}
+{% load crispy_forms_tags %}
+{%  block content %}        <! block content used for >
+<div class="card" style="width: 60rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+        <table class ='table'>
+            <thead>
+            <tr>
+                <th scope="col">sl No</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Reply</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in obj %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.date}}</td>
+                <td>{{i.user}}</td>
+                <td>
+                    {% if i.reply == None %}
+                    <p>No Reply </p>
+                    {% else %}
+                    <p>{{i.reply}}</p>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'customertemp/Customer_home.html'%}
+{% load crispy_forms_tags %}
+{%  block content %}
+<div class="card" style="width: 18rem;">
+      {% for i in data %}
+    <div class="card-body">
+      <label for="fname">Name: {{i.name}}</label><br><br>
+      <label for="lname">Phone_Number: {{i.phone_number}}</label><br><br>
+      <label for="address">Address: {{i.address}}</label><br><br>
+      <label for="Location">Location: {{i.location}}:</label><br><br>
+  </div>
+    {% endfor %}
+</div>
+{% endblock %}

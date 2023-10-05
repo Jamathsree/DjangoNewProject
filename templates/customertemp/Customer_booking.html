@@ -1,0 +1,32 @@
+{% extends 'customertemp/Customer_home.html'%}
+{% load crispy_forms_tags %}
+{%  block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+               <table class ='table'>0
+            <thead>
+            <tr>
+                <th scope="col">S.no</th>
+                <th>user</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in obj %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.user}}</td>
+                <td>{{i.start_time}}</td>
+                <td>{{i.end_time}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.status}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+  </div>
+</div>
+{% endblock %}
